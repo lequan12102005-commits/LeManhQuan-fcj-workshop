@@ -1,26 +1,25 @@
 ---
 title: "Internship Report"
-date: 2024-01-01
+date: 05/11/2026
 weight: 1
 chapter: false
 ---
 
-    
 # Internship Report
 
-
 ### Student Information:
-&emsp; **Full Name:** Nguyen Tung Duong
 
-&emsp; **Phone Number:** 0868025895
+&emsp; **Full Name:** Le Manh Quan
 
-&emsp; **Email:** tungduong191005@gmail.com
+&emsp; **Phone Number:** 0855680633
+
+&emsp; **Email:** lequan12102005@gmail.com
 
 &emsp; **University:** Vietnam National University of Agriculture
 
 &emsp; **Major:** Information Technology
 
-&emsp; **Class:** K68CNTTD
+&emsp; **Class:** K68CNTTA
 
 &emsp; **Internship Company:** Amazon Web Services Viet Nam Company Limited
 
@@ -28,7 +27,7 @@ chapter: false
 
 &emsp; **Internship Duration:** From 08/08/2026 to 14/11/2026
 
-![Your profile picture](/images/avatar.jpg)
+![Your profile picture](/images/avatar.png)
 
 ### Report Content
 

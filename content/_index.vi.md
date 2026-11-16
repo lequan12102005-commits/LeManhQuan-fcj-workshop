@@ -6,18 +6,20 @@ chapter: false
 ---
 
 # Báo cáo thực tập
+
 ### Thông tin sinh viên:
-&emsp; **Họ và tên:** Nguyễn Tùng Dương   
 
-&emsp; **Số điện thoại:** 0868025895    
+&emsp; **Họ và tên:** Lê Mạnh Quân
 
-&emsp; **Email:** tungduong191005@gmail.com
+&emsp; **Số điện thoại:** 0855680633
+
+&emsp; **Email:** lequan12102005@gmail.com
 
 &emsp; **Trường:** Học viện nông nghiệp Việt Nam
 
 &emsp; **Ngành:** Công nghệ thông tin
 
-&emsp; **Lớp:** K68CNTTD
+&emsp; **Lớp:** K68CNTTA
 
 &emsp; **Công ty thực tập:** Công ty TNHH Amazon Web Services Viet Nam
 
@@ -26,8 +28,6 @@ chapter: false
 &emsp; **Thời gian thực tập:** Từ ngày 08/08/2026 đến ngày 14/11/2026
 
 ![Ảnh đại diện của bạn](/images/avatar.png)
-
-
 
 ### Nội dung báo cáo
 

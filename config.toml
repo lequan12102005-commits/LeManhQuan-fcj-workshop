@@ -1,6 +1,6 @@
-baseURL = "http://localhost:1313/"
+baseURL = "https://lequan12102005-commits.github.io/LeManhQuan-fcj-workshop/"
 relativeURLs = false
-canonifyURLs = false
+canonifyURLs = true
 defaultContentLanguage = "en"
 # Change the default theme to be use when building the site with Hugo
 theme = "hugo-theme-learn"
