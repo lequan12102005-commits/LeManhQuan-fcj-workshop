@@ -1,47 +1,31 @@
 ---
-title: "Week 6 Worklog"
-date: 2026-05-25
+title: "6. Studying infrastructure monitoring with CloudWatch and SNS"
+date: 2026-09-26T09:00:00+07:00
 weight: 6
-chapter: false
-pre: " <b> 1.6. </b> "
+draft: false
+description: "Studying infrastructure monitoring with CloudWatch and SNS"
 ---
 
-
+# 6. Studying infrastructure monitoring with CloudWatch and SNS
 
 ### Week 6 Objectives:
 
-* Gain a deep understanding of Amazon S3 comprehensive object storage service.
-* Master data lifecycle management rules and cloud storage security policies.
+- Understand the role of AWS resource monitoring.
+- Distinguish built-in EC2 metrics from additional collected metrics.
+- Learn how notifications can be sent when resource metrics exceed thresholds.
 
 ### Tasks to be carried out this week:
-| Day | Task | Start Date | Completion Date | Reference Material |
-| --- | --- | --- | --- | --- |
-| 7   | - Learn Amazon S3 storage architecture <br>&emsp; + Bucket & Object identification structure <br>&emsp; + Key-Value principles of Object Storage <br> | 12/09/2026   | 12/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| sunday   | - Deep dive into S3 Storage Classes <br>&emsp; + S3 Standard <br>&emsp; + S3 Standard-IA <br>&emsp; + S3 Glacier (Instant/Flexible/Deep Archive) | 13/09/2026   | 13/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| 2   | - Learn mechanisms for protecting and managing large data <br>&emsp; + S3 Versioning <br>&emsp; + Lifecycle Rules <br> | 14/09/2026   | 14/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| 3   | - Differentiate S3 access control mechanisms <br>&emsp; + S3 Bucket Policies <br>&emsp; + IAM Policies <br> - Prepare Static Website source code (HTML/CSS/JS) | 15/09/2026   | 15/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Study theoretical optimization for large file storage costs <br> - Summarize unstructured storage architectures for various system models | 16/09/2026   | 16/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task | Start Date | Completion Date | Reference Material |
+| :--- | :--- | :--- | :--- | :--- |
+| Saturday (on-site) | Learn about Amazon CloudWatch and how to view EC2 CPU and network traffic metrics. | 26/09/2026 | 26/09/2026 | [EC2 CloudWatch metrics](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/viewing_metrics_with_cloudwatch.html) |
+| Sunday (independent study) | Read about the CloudWatch agent to understand how additional memory and disk metrics are collected. | 27/09/2026 | 27/09/2026 | [CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) |
+| Monday (independent study) | Study how to set CloudWatch alarm thresholds and distinguish OK, ALARM, and INSUFFICIENT_DATA states. | 28/09/2026 | 28/09/2026 | [CloudWatch alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Alarms.html) |
+| Tuesday (independent study) | Learn about SNS topics, subscriptions, and email subscription confirmation. | 29/09/2026 | 29/09/2026 | [Amazon SNS](https://docs.aws.amazon.com/sns/latest/dg/welcome.html) |
 
 ### Week 6 Achievements:
 
-* Clearly differentiated the core nature of two foundational storage platforms:
-  * Object Storage (Amazon S3)
-  * Block Storage (Amazon EBS)
-  * ...
+- Understood the purpose of CloudWatch in monitoring EC2 server activity.
+- Understood why memory and disk metrics need additional collection configuration.
+- Understood how CloudWatch alarms and SNS can work together to send notifications.
 
-* Mastered cost optimization techniques based on file access frequency via S3 Storage Classes:
-  * Standard class for frequently accessed data
-  * Infrequent Access (IA) class to save costs for less-used data
-  * Glacier class specialized for long-term data archiving
-  * ...
-
-* Grasped cloud resource management and integrity protection mechanisms:
-  * S3 Versioning to recover overwritten or accidentally deleted files
-  * Lifecycle Rules to automate storage class transitions or expire old files
-  * ...
-
-* Mastered assigning and enforcing secure access privileges:
-  * Setting up S3 Bucket Policies applied directly to the container resource
-  * Combining IAM Policies for fine-grained user identity permissions
-* ...

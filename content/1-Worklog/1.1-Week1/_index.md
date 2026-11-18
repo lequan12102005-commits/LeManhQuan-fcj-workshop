@@ -1,53 +1,32 @@
 ---
-title: "Week 1 Worklog"
-date: 2026-04-20
+title: "1. Getting started with the FCAJ internship and cloud computing"
+date: 2026-08-08T09:00:00+07:00
 weight: 1
-chapter: false
-pre: " <b> 1.1. </b> "
+draft: false
+description: "Getting started with the FCAJ internship and cloud computing"
 ---
 
+# 1. Getting started with the FCAJ internship and cloud computing
 
 ### Week 1 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+- Become familiar with the internship environment at 36 Cat Linh and its learning approach.
+- Understand fundamental cloud computing and AWS concepts.
+- Learn how to find documentation and use the AWS Management Console.
 
 ### Tasks to be carried out this week:
-| Day | Task | Start Date | Completion Date | Reference Material |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 7   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations | 08/08/2026   | 08/08/2026      | https://hn-rules.awsfcaj.com |
-| sunday   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br> | 09/08/2026   | 09/08/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| 2   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 10/08/2026   | 10/08/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| 3   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP <br> | 11/08/2026   | 11/08/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume | 12/08/2026   | 12/08/2026      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task | Start Date | Completion Date | Reference Material |
+| :--- | :--- | :--- | :--- | :--- |
+| Saturday (on-site) | Learn about the FCAJ program, the internship environment, and how to maintain a learning log. | 08/08/2026 | 08/08/2026 | [AWS First Cloud AI Journey](https://cloudjourney.awsstudygroup.com/) |
+| Sunday (independent study) | Study cloud computing concepts and the IaaS, PaaS, and SaaS models. | 09/08/2026 | 09/08/2026 | [AWS Overview](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/introduction.html) |
+| Monday (independent study) | Learn about AWS Regions, Availability Zones, and global infrastructure. | 10/08/2026 | 10/08/2026 | [AWS Overview](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/introduction.html) |
+| Tuesday (independent study) | Explore the AWS Management Console and the Compute, Storage, Networking, and Database service categories. | 11/08/2026 | 11/08/2026 | [AWS Overview](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/introduction.html) |
+| Wednesday (independent study) | Read the AWS CLI guide and note how to locate documentation for independent study. | 12/08/2026 | 12/08/2026 | [AWS CLI User Guide](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html) |
 
 ### Week 1 Achievements:
 
-* Understood what AWS is and mastered the basic service groups:
-  * Compute
-  * Storage
-  * Networking
-  * Database
-  * ...
+- Gained introductory knowledge of cloud computing and AWS service categories.
+- Understood the distinction between a Region and an Availability Zone.
+- Established an approach to independent study and AWS documentation for later weeks.
 
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...

@@ -1,40 +1,31 @@
 ---
-title: "Week 8 Worklog"
-date: 2026-06-08
+title: "8. Researching the technologies used in the project"
+date: 2026-10-10T09:00:00+07:00
 weight: 8
-chapter: false
-pre: " <b> 1.8. </b> "
+draft: false
+description: "Researching the technologies used in the project"
 ---
 
-
+# 8. Researching the technologies used in the project
 
 ### Week 8 Objectives:
 
-* Conduct a comprehensive study on AWS cloud database service offerings.
-* Analyze data schemas and design network partition strategies for storage layers.
+- Learn about technologies for managing and monitoring network infrastructure.
+- Research AWS services that could be used in the project.
+- Explore the advantages of the serverless model.
 
 ### Tasks to be carried out this week:
-| Day | Task | Start Date | Completion Date | Reference Material |
-| --- | --- | --- | --- | --- |
-| 7   | - Study Amazon RDS architecture (Relational Databases) <br>&emsp; + Supported Database Engines (MySQL, PostgreSQL) <br>&emsp; + Automated platform management features | 26/09/2026 | 26/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| sunday   | - Research High Availability (HA) models for data storage <br>&emsp; + Multi-AZ Deployments (Synchronous data replication) <br>&emsp; + Read Replicas (Horizontal scaling for read workloads) | 27/09/2026 | 27/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| 2   | - Learn non-relational NoSQL database options <br>&emsp; + Amazon DynamoDB core elements <br>&emsp; + Key concepts of Partition Keys and Sort Keys <br>&emsp; + Provisioned vs On-demand capacity modes | 28/09/2026 | 28/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| 3   | - Analyze business use-cases to evaluate when to choose RDS vs DynamoDB <br> - Sketch a sample logical relational database schema template | 29/09/2026 | 29/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Study network isolation principles to safely secure cloud databases <br> - Understand the basic functionalities of DB Subnet Groups | 30/09/2026 | 30/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task | Start Date | Completion Date | Reference Material |
+| :--- | :--- | :--- | :--- | :--- |
+| Saturday (on-site) | Explore cloud-based network infrastructure management and monitoring technologies. | 10/10/2026 | 10/10/2026 | [AWS Overview](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/introduction.html) |
+| Sunday (independent study) | Research Amazon VPC and how to build virtual network infrastructure. | 11/10/2026 | 11/10/2026 | [VPC](https://docs.aws.amazon.com/vpc/latest/userguide/how-it-works.html) |
+| Monday (independent study) | Learn about Amazon EC2 and how virtual servers can be used in a monitoring system. | 12/10/2026 | 12/10/2026 | [EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/LaunchingAndUsingInstances.html) |
+| Tuesday (independent study) | Research the serverless model with Lambda, API Gateway, and DynamoDB. | 13/10/2026 | 13/10/2026 | [Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) |
 
 ### Week 8 Achievements:
 
-* Differentiated structural variations between relational and non-relational cloud data storage engines:
-  * Amazon RDS addresses intricate transactional queries needing ACID compliance parameters.
-  * Amazon DynamoDB satisfies high-scale applications requiring predictable sub-millisecond latencies.
-  * ...
+- Understood the technologies that could be used in the project.
+- Learned the roles of VPC, EC2, and serverless services.
+- Gained foundational knowledge for selecting suitable technologies.
 
-* Mastered architectural designs optimized to maintain continuous data operations:
-  * Multi-AZ failover frameworks protecting systems against hardware infrastructure outages.
-  * Read Replica separation models increasing performance for read-heavy system structures.
-  * ...
-
-* Grasped backend administrative features surrounding managed automated backup procedures (Automated Snapshots).
-* Created a clean logical data schema defining entity relationships clearly before physical deployment workflows.
-* ...

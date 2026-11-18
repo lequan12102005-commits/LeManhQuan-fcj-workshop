@@ -1,46 +1,31 @@
 ---
-title: "Worklog Tuần 2"
-date: 2026-04-27
+title: "2. Tìm hiểu IAM, bảo mật tài khoản và quản lý chi phí"
+date: 2026-08-29T09:00:00+07:00
 weight: 2
-chapter: false
-pre: " <b> 1.2. </b> "
+draft: false
+description: "Tìm hiểu IAM, bảo mật tài khoản và quản lý chi phí"
 ---
 
+# 2. Tìm hiểu IAM, bảo mật tài khoản và quản lý chi phí
 
 ### Mục tiêu tuần 2:
 
-* Tìm hiểu kiến trúc mạng cốt lõi của AWS (Amazon VPC).
-* Nắm vững các khái niệm về bảo mật luồng mạng và định tuyến.
+- Hiểu các thành phần cơ bản của AWS IAM.
+- Tìm hiểu cách bảo vệ tài khoản và quản lý quyền truy cập.
+- Biết cách theo dõi chi phí sử dụng dịch vụ AWS.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
-| --- | --- | --- | --- | --- |
-| 7 | - Tìm hiểu kiến trúc mạng AWS cơ bản <br>&emsp; + VPC <br>&emsp; + Subnets (Public/Private) <br>&emsp; + Route Tables <br> | 15/08/2026 | 15/08/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| chủ nhật | - Tìm hiểu các cổng kết nối mạng <br>&emsp; + Internet Gateway (IGW) <br>&emsp; + NAT Gateway <br> - Vẽ sơ đồ mạng 2 lớp (2-tier) | 16/08/2026 | 16/08/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 2 | - Khái niệm định tuyến CIDR block <br> - Tìm hiểu Security Groups vs Network ACLs <br>&emsp; + Stateful <br>&emsp; + Stateless <br> | 17/08/2026 | 17/08/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 3 | - **Thực hành:** <br>&emsp; + Tạo VPC tùy chỉnh <br>&emsp; + Cấu hình 1 Public & 1 Private Subnet <br>&emsp; + Gắn Internet Gateway | 18/08/2026 | 18/08/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 4 | - **Thực hành:** <br>&emsp; + Cấu hình Route Table <br>&emsp; + Triển khai NAT Gateway <br>&emsp; + Kiểm tra kết nối ping/SSH | 19/08/2026 | 19/08/2026 | <https://cloudjourney.awsstudygroup.com/> |
+
+| Ngày | Công việc | Bắt đầu | Hoàn thành | Tài liệu tham khảo |
+| :--- | :--- | :--- | :--- | :--- |
+| Thứ Bảy (tại cơ sở) | Tìm hiểu IAM User, Group, Role và Policy trong buổi thực tập. | 29/08/2026 | 29/08/2026 | [AWS IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) |
+| Chủ nhật (tự học) | Tự học cách sử dụng MFA và nguyên tắc cấp quyền tối thiểu, hạn chế sử dụng tài khoản root. | 30/08/2026 | 30/08/2026 | [IAM security best practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) |
+| Thứ Hai (tự học) | Tìm hiểu mô hình trách nhiệm chia sẻ giữa AWS và khách hàng. | 31/08/2026 | 31/08/2026 | [Shared responsibility](https://docs.aws.amazon.com/wellarchitected/latest/framework/shared-responsibility.html) |
+| Thứ Ba (tự học) | Đọc hướng dẫn theo dõi chi phí và thiết lập cảnh báo ngân sách bằng AWS Budgets. | 01/09/2026 | 01/09/2026 | [AWS Budgets best practices](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-best-practices.html) |
 
 ### Kết quả đạt được tuần 2:
 
-* Hiểu rõ kiến trúc mạng AWS và làm chủ các thành phần cốt lõi:
-  * VPC (Virtual Private Cloud)
-  * Subnets (Public vs Private)
-  * Route Tables
-  * ...
+- Phân biệt được User, Role và Policy trong IAM.
+- Hiểu các nguyên tắc cơ bản để bảo vệ tài khoản AWS.
+- Nắm được cách dùng AWS Budgets để theo dõi chi phí trong quá trình thực hành.
 
-* Thiết kế thành công sơ đồ kiến trúc mạng 2-tier an toàn và tách biệt.
-
-* Phân biệt rõ ràng các lớp bảo mật mạng:
-  * Security Groups (Tường lửa mức Instance)
-  * Network ACLs (Tường lửa mức Subnet)
-  * ...
-
-* Đã triển khai và cấu hình thành công một VPC tùy chỉnh từ con số không, bao gồm:
-  * Phân chia dải IP (CIDR)
-  * Internet Gateways
-  * NAT Gateways
-  * ...
-
-* Kiểm chứng khả năng định tuyến và sự cô lập của mạng thông qua các lệnh ping và SSH thực tế.
-* ...

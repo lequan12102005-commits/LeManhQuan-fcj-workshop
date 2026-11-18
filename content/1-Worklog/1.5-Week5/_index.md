@@ -1,48 +1,31 @@
 ---
-title: "Week 5 Worklog"
-date: 2026-05-18
+title: "5. Learning Amazon EC2 servers and EBS storage"
+date: 2026-09-19T09:00:00+07:00
 weight: 5
-chapter: false
-pre: " <b> 1.5. </b> "
+draft: false
+description: "Learning Amazon EC2 servers and EBS storage"
 ---
 
-
+# 5. Learning Amazon EC2 servers and EBS storage
 
 ### Week 5 Objectives:
 
-* Master the principles of High Availability and Scalability.
-* Study the operational mechanisms of Elastic Load Balancing.
+- Understand how to select an EC2 server configuration.
+- Learn about AMIs, instance types, EBS, and the instance lifecycle.
+- Learn server management and how to limit unnecessary costs.
 
 ### Tasks to be carried out this week:
-| Day | Task | Start Date | Completion Date | Reference Material |
-| --- | --- | --- | --- | --- |
-| 7   | - Learn Elastic Load Balancing (ELB) <br>&emsp; + Application Load Balancer (ALB) <br>&emsp; + Network Load Balancer (NLB) <br> | 05/09/2026   | 05/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| sunday   | - Study Target Groups & Health Checks <br>&emsp; + Concepts of routing algorithms <br> | 06/09/2026   | 06/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| 2   | - Learn Amazon EC2 Auto Scaling (ASG) <br>&emsp; + Launch Templates <br>&emsp; + Scaling Policies <br> | 07/09/2026   | 07/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| 3   | - **Practice:** <br>&emsp; + Create EC2 Launch Template (with pre-installed Apache) <br>&emsp; + Create Target Group for HTTP (Port 80) <br> | 08/09/2026   | 08/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - **Practice:** <br>&emsp; + Configure Application Load Balancer <br>&emsp; + Launch Auto Scaling Group across 2 AZs <br>&emsp; + Test self-healing capability | 09/09/2026   | 09/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task | Start Date | Completion Date | Reference Material |
+| :--- | :--- | :--- | :--- | :--- |
+| Saturday (on-site) | Learn the steps for launching EC2 in the AWS Console and selecting an operating system and instance configuration. | 19/09/2026 | 19/09/2026 | [Launch an EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/LaunchingAndUsingInstances.html) |
+| Sunday (independent study) | Study the differences between AMIs, instance types, and networking options when launching EC2. | 20/09/2026 | 20/09/2026 | [Launch an EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/LaunchingAndUsingInstances.html) |
+| Monday (independent study) | Learn about EBS root volumes, storage capacity, and their relationship to EC2 servers. | 21/09/2026 | 21/09/2026 | [Amazon EBS](https://docs.aws.amazon.com/ebs/latest/userguide/what-is-ebs.html) |
+| Tuesday (independent study) | Read about the Running, Stopped, and Terminated states and resources that may continue to incur charges. | 22/09/2026 | 22/09/2026 | [EC2 instance lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) |
 
 ### Week 5 Achievements:
 
-* Deeply understood how cloud systems handle massive traffic via:
-  * Layer 7 Load Balancing (ALB)
-  * Layer 4 Load Balancing (NLB)
-  * ...
+- Understood the basic process for launching an EC2 server.
+- Understood the roles of AMIs, instance types, and EBS.
+- Learned to check instance states and consider costs after stopping a server.
 
-* Grasped the importance of automated server health monitoring:
-  * Configuring Target Groups
-  * Setting up Health Checks
-
-* Manually configured an automated virtual server cloning environment, including:
-  * Creating Launch Templates with pre-packaged web server configurations
-  * Building Scaling Policies to scale resources based on demand
-  * ...
-
-* Fully deployed a High Availability architecture:
-  * Running a Load Balancer distributing traffic across multiple Availability Zones
-  * Simulating server failure and verifying Auto Scaling's automatic replacement capability
-  * ...
-
-* Proven the flexibility and fault-tolerance of a deployed web application.
-* ...

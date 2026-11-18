@@ -226,3 +226,48 @@ div.notices.info p {
   border-top: 30px solid #fd9827;
   background: #fff2db;
 }
+
+/* Consistent Vietnamese typography */
+body,
+button,
+input,
+select,
+textarea,
+#chapter h1,
+#chapter h2,
+#chapter h3,
+#body h1,
+#body h2,
+#body h3,
+#body h4,
+#body h5,
+#body h6 {
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+#body h1,
+#body h2,
+#body h3,
+#body h4,
+#body h5,
+#body h6 {
+  font-weight: 600;
+  letter-spacing: normal;
+}
+
+#body table {
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+#body th,
+#body strong,
+#body b {
+  font-weight: 700;
+}

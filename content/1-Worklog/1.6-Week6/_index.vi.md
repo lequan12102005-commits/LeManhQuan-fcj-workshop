@@ -1,45 +1,31 @@
 ---
-title: "Worklog Tuần 6"
-date: 2026-05-25
+title: "6. Tìm hiểu giám sát hạ tầng bằng CloudWatch và SNS"
+date: 2026-09-26T09:00:00+07:00
 weight: 6
-chapter: false
-pre: " <b> 1.6. </b> "
+draft: false
+description: "Tìm hiểu giám sát hạ tầng bằng CloudWatch và SNS"
 ---
 
-
+# 6. Tìm hiểu giám sát hạ tầng bằng CloudWatch và SNS
 
 ### Mục tiêu tuần 6:
 
-* Hiểu sâu về dịch vụ lưu trữ đối tượng toàn diện Amazon S3.
-* Nắm vững các quy tắc quản lý vòng đời dữ liệu và chính sách bảo mật lưu trữ đám mây.
+- Hiểu vai trò của hệ thống giám sát tài nguyên AWS.
+- Phân biệt chỉ số có sẵn của EC2 và chỉ số thu thập bổ sung.
+- Tìm hiểu cách gửi thông báo khi tài nguyên vượt ngưỡng.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
-| --- | --- | --- | --- | --- |
-| 7   | - Tìm hiểu kiến trúc lưu trữ Amazon S3 <br>&emsp; + Cấu trúc nhận dạng Bucket & Object <br>&emsp; + Nguyên lý Key-Value của Object Storage (Lưu trữ đối tượng) <br> | 12/09/2026   | 12/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| chủ nhật   | - Tìm hiểu sâu về các Lớp lưu trữ S3 (Storage Classes) <br>&emsp; + S3 Standard <br>&emsp; + S3 Standard-IA <br>&emsp; + S3 Glacier (Instant/Flexible/Deep Archive) | 13/09/2026   | 13/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| 2   | - Tìm hiểu cơ chế bảo vệ và quản lý dữ liệu lớn <br>&emsp; + S3 Versioning (Tạo phiên bản) <br>&emsp; + Lifecycle Rules (Quy tắc vòng đời) <br> | 14/09/2026   | 14/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| 3   | - Phân biệt các cơ chế kiểm soát truy cập S3 <br>&emsp; + S3 Bucket Policies (Chính sách Bucket) <br>&emsp; + IAM Policies (Chính sách IAM) <br> - Chuẩn bị mã nguồn website tĩnh (HTML/CSS/JS) | 15/09/2026   | 15/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Nghiên cứu lý thuyết tối ưu chi phí lưu trữ tệp lớn <br> - Tóm tắt kiến trúc lưu trữ phi cấu trúc cho các mô hình hệ thống khác nhau | 16/09/2026   | 16/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
+
+| Ngày | Công việc | Bắt đầu | Hoàn thành | Tài liệu tham khảo |
+| :--- | :--- | :--- | :--- | :--- |
+| Thứ Bảy (tại cơ sở) | Tìm hiểu Amazon CloudWatch và cách xem các chỉ số CPU, lưu lượng mạng của EC2. | 26/09/2026 | 26/09/2026 | [EC2 CloudWatch metrics](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/viewing_metrics_with_cloudwatch.html) |
+| Chủ nhật (tự học) | Đọc tài liệu về CloudWatch Agent để hiểu cách thu thập thêm chỉ số RAM và ổ đĩa. | 27/09/2026 | 27/09/2026 | [CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) |
+| Thứ Hai (tự học) | Tự học cách đặt ngưỡng CloudWatch Alarm và phân biệt trạng thái OK, ALARM, INSUFFICIENT_DATA. | 28/09/2026 | 28/09/2026 | [CloudWatch alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Alarms.html) |
+| Thứ Ba (tự học) | Tìm hiểu SNS Topic, Subscription và quy trình xác nhận nhận thông báo qua email. | 29/09/2026 | 29/09/2026 | [Amazon SNS](https://docs.aws.amazon.com/sns/latest/dg/welcome.html) |
 
 ### Kết quả đạt được tuần 6:
 
-* Phân biệt rõ ràng bản chất giữa hai nền tảng lưu trữ cốt lõi:
-  * Object Storage (Amazon S3)
-  * Block Storage (Amazon EBS)
-  * ...
+- Hiểu mục đích của CloudWatch trong theo dõi hoạt động máy chủ EC2.
+- Biết vì sao chỉ số RAM và ổ đĩa cần cấu hình thu thập bổ sung.
+- Nắm cơ chế kết hợp CloudWatch Alarm và SNS để gửi thông báo.
 
-* Làm chủ kỹ thuật tối ưu hóa chi phí hệ thống dựa trên tần suất truy cập tệp tin qua S3 Storage Classes:
-  * Lớp Standard dành cho dữ liệu truy cập thường xuyên
-  * Lớp Infrequent Access (IA) tiết kiệm chi phí cho dữ liệu ít dùng
-  * Lớp Glacier chuyên dụng cho việc lưu trữ lưu kho dài hạn
-  * ...
-
-* Hiểu rõ cơ chế quản lý và bảo vệ toàn vẹn tài nguyên trên Cloud:
-  * Cơ chế S3 Versioning giúp khôi phục các tệp tin bị ghi đè hoặc xóa nhầm
-  * Quy tắc Lifecycle Rules tự động hóa tiến trình chuyển lớp lưu trữ hoặc hủy tệp tin hết hạn
-  * ...
-
-* Nắm vững cách phân cấp và thực thi quyền hạn truy cập an toàn bảo mật:
-  * Thiết lập S3 Bucket Policies áp dụng trực tiếp cho tài nguyên chứa
-  * Kết hợp IAM Policies phân quyền chi tiết cho định danh người dùng

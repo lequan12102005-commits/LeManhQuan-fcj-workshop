@@ -1,49 +1,31 @@
 ---
-title: "Week 4 Worklog"
-date: 2026-05-11
+title: "4. Studying AWS network routing and security"
+date: 2026-09-12T09:00:00+07:00
 weight: 4
-chapter: false
-pre: " <b> 1.4. </b> "
+draft: false
+description: "Studying AWS network routing and security"
 ---
 
-
-
+# 4. Studying AWS network routing and security
 
 ### Week 4 Objectives:
 
-* Explore Database services on AWS.
-* Differentiate between relational databases (RDS) and non-relational databases (NoSQL).
+- Understand how route tables and internet gateways work.
+- Distinguish security groups and network ACLs.
+- Learn the principles of controlling network access to resources.
 
 ### Tasks to be carried out this week:
-| Day | Task | Start Date | Completion Date | Reference Material |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 7   | - Learn Amazon RDS (Relational DB) <br>&emsp; + MySQL, PostgreSQL <br>&emsp; + Multi-AZ Deployments <br>&emsp; + Read Replicas <br> | 29/08/2026   | 29/08/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| sunday   | - Learn Amazon DynamoDB (NoSQL DB) <br>&emsp; + Partition Keys <br>&emsp; + Sort Keys <br>&emsp; + Provisioned vs On-demand <br> | 30/08/2026   | 30/08/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| 2   | - Analyze Use-cases for RDS and DynamoDB <br> - Learn to design DB Subnet Groups <br> | 31/08/2026   | 31/08/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| 3   | - **Practice:** <br>&emsp; + Configure Private Subnet for DB <br>&emsp; + Create DB Security Group (only allow traffic from EC2) <br> | 01/09/2026   | 01/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - **Practice:** <br>&emsp; + Launch RDS MySQL (Free Tier) <br>&emsp; + SSH into EC2 and test Database connection <br>&emsp; + Clean up resources | 02/09/2026   | 02/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task | Start Date | Completion Date | Reference Material |
+| :--- | :--- | :--- | :--- | :--- |
+| Saturday (on-site) | Study route tables, local routes, and subnet associations during the internship session. | 12/09/2026 | 12/09/2026 | [Subnet route tables](https://docs.aws.amazon.com/vpc/latest/userguide/subnet-route-tables.html) |
+| Sunday (independent study) | Learn how to attach an internet gateway to a VPC and configure internet routing for a public subnet. | 13/09/2026 | 13/09/2026 | [Internet gateway](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-igw.html) |
+| Monday (independent study) | Study security group inbound and outbound rules and how to restrict SSH access. | 14/09/2026 | 14/09/2026 | [VPC infrastructure security](https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html) |
+| Tuesday (independent study) | Compare security groups with network ACLs and note how each controls traffic. | 15/09/2026 | 15/09/2026 | [Network ACLs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html) |
 
 ### Week 4 Achievements:
 
-* Understood the pros and cons of different database engines on AWS:
-  * Amazon RDS (Relational Database)
-  * Amazon DynamoDB (Non-relational Database)
-  * ...
+- Understood the roles of route tables and internet gateways in internet connectivity.
+- Distinguished resource-level and subnet-level network security.
+- Understood the principle of opening only necessary ports.
 
-* Grasped High Availability (HA) mechanisms for Databases:
-  * Multi-AZ Failover
-  * Read Replicas (Scaling read capacity)
-
-* Successfully established secure network groups strictly for databases:
-  * DB Subnet Groups
-  * Security Groups blocking internet access
-  * ...
-
-* Successfully deployed a complete cloud database environment, including:
-  * Initializing RDS MySQL server
-  * Connecting securely from the Application tier (EC2) to the Database tier (RDS) via MySQL CLI
-  * ...
-
-* Executed basic SQL queries manually on the managed cloud DB system.
-* ...

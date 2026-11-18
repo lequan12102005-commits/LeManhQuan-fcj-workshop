@@ -1,37 +1,24 @@
 ---
-title: "Nhật ký công việc"
-date: 2026-04-20
+title: "1. Nhật ký công việc"
 weight: 1
-chapter: false
-pre: " <b> 1. </b> "
+draft: false
 ---
 
+# Nhật ký công việc — 12 tuần
 
+Nhật ký thực tập AWS của Tùng Dương tại 36 Cát Linh, Hà Nội (08/08–14/11/2026). Tuần 1–7 là thời gian thực tập và tự học; tuần 8–9 nghiên cứu công nghệ sử dụng trong đề tài; tuần 10–12 thực hiện, kết nối và kiểm thử đề tài nhóm NetMon, phụ trách VPC, EC2 và bảo mật. Nội dung theo từng ngày cần đối chiếu với nhật ký thực tế.
 
+- [1. Làm quen môi trường thực tập FCAJ và điện toán đám mây]({{< relref "1.1-Week1" >}})
+- [2. Tìm hiểu IAM, bảo mật tài khoản và quản lý chi phí]({{< relref "1.2-Week2" >}})
+- [3. Kiến thức mạng máy tính và Amazon VPC]({{< relref "1.3-Week3" >}})
+- [4. Tự học định tuyến và bảo mật mạng trên AWS]({{< relref "1.4-Week4" >}})
+- [5. Tìm hiểu máy chủ Amazon EC2 và lưu trữ EBS]({{< relref "1.5-Week5" >}})
+- [6. Tìm hiểu giám sát hạ tầng bằng CloudWatch và SNS]({{< relref "1.6-Week6" >}})
+- [7. Tìm hiểu Serverless và ôn tập kiến trúc AWS]({{< relref "1.7-Week7" >}})
+- [8. Nghiên cứu các công nghệ sử dụng trong đề tài]({{< relref "1.8-Week8" >}})
+- [9. Tìm hiểu cách áp dụng các dịch vụ AWS vào đề tài]({{< relref "1.9-Week9" >}})
+- [10. Bắt đầu thực hiện đề tài NetMon]({{< relref "1.10-Week10" >}})
+- [11. Triển khai các phần công việc của nhóm]({{< relref "1.11-Week11" >}})
+- [12. Kết nối hệ thống, kiểm thử và hoàn thiện đề tài]({{< relref "1.12-Week12" >}})
 
-
-Thông thường và cũng là tiêu chuẩn, một worklog được thực hiện trong khoảng 3 tháng (trong suốt thời gian thực tập) với nội dung các tuần như sau:
-
-**Tuần 1:** [Làm quen với hạ tầng AWS, giao diện Console và các dịch vụ cơ bản](1.1-week1/)
-
-**Tuần 2:** [Thiết kế và cấu hình mạng Đám mây ảo riêng biệt (Amazon VPC)](1.2-week2/)
-
-**Tuần 3:** [Triển khai lưu trữ Website tĩnh tốc độ cao với Amazon S3 và CloudFront](1.3-week3/)
-
-**Tuần 4:** [Khám phá hệ sinh thái Cơ sở dữ liệu và thiết lập máy chủ RDS MySQL](1.4-week4/)
-
-**Tuần 5:** [Xây dựng kiến trúc sẵn sàng cao với Load Balancer và Auto Scaling](1.5-week5/)
-
-**Tuần 6:** [Nghiên cứu chuyên sâu các Lớp lưu trữ S3 và quy tắc vòng đời dữ liệu](1.6-week6/)
-
-**Tuần 7:** [Bảo mật điểm cuối hệ thống CDN sử dụng CloudFront và S3 OAC](1.7-week7/)
-
-**Tuần 8:** [Phân tích kiến trúc cơ sở dữ liệu và cơ chế dự phòng thảm họa Multi-AZ](1.8-week8/)
-
-**Tuần 9:** [Thiết lập mạng lưới đa tầng kết nối máy chủ EC2 với phân vùng DB nội bộ](1.9-week9/)
-
-**Tuần 10:** [Phân tích nguyên lý tự co giãn tài nguyên, Health Checks và chịu tải hệ thống](1.10-week10/)
-
-**Tuần 11:** [Kiểm thử khả năng tự phục hồi (Self-healing) với Auto Scaling Groups đa vùng](1.11-week11/)
-
-**Tuần 12:** [Triển khai kiến trúc không máy chủ (Serverless) với AWS Lambda và CloudWatch](1.12-week12/)
+*Các mốc ngày giữ nguyên theo nhật ký gốc; nội dung ngày 14/11/2026 cần đối chiếu với kết quả thực tế của buổi cuối.*

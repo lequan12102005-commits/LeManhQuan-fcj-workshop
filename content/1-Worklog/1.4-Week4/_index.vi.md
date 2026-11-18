@@ -1,48 +1,31 @@
 ---
-title: "Worklog Tuần 4"
-date: 2026-05-11
+title: "4. Tự học định tuyến và bảo mật mạng trên AWS"
+date: 2026-09-12T09:00:00+07:00
 weight: 4
-chapter: false
-pre: " <b> 1.4. </b> "
+draft: false
+description: "Tự học định tuyến và bảo mật mạng trên AWS"
 ---
 
-
-
+# 4. Tự học định tuyến và bảo mật mạng trên AWS
 
 ### Mục tiêu tuần 4:
 
-* Khám phá các dịch vụ Cơ sở dữ liệu trên AWS.
-* Tìm hiểu sự khác biệt giữa cơ sở dữ liệu quan hệ (RDS) và phi quan hệ (NoSQL).
+- Hiểu cơ chế hoạt động của Route Table và Internet Gateway.
+- Phân biệt Security Group và Network ACL.
+- Nắm nguyên tắc kiểm soát kết nối đến tài nguyên mạng.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
-| --- | --- | --- | --- | --- |
-| 7   | - Tìm hiểu Amazon RDS (Cơ sở dữ liệu quan hệ) <br>&emsp; + MySQL, PostgreSQL <br>&emsp; + Triển khai Multi-AZ <br>&emsp; + Read Replicas (Bản sao đọc) <br> | 29/08/2026   | 29/08/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| chủ nhật   | - Tìm hiểu Amazon DynamoDB (CSDL NoSQL) <br>&emsp; + Partition Keys (Khóa phân vùng) <br>&emsp; + Sort Keys (Khóa sắp xếp) <br>&emsp; + Provisioned vs On-demand (Cấp phát trước vs Theo nhu cầu) <br> | 30/08/2026   | 30/08/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| 2   | - Phân tích các trường hợp sử dụng RDS và DynamoDB <br> - Học cách thiết kế DB Subnet Groups (Nhóm Subnet cho DB) <br> | 31/08/2026   | 31/08/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| 3   | - **Thực hành:** <br>&emsp; + Cấu hình Private Subnet cho DB <br>&emsp; + Tạo DB Security Group (chỉ cho phép lưu lượng từ EC2) <br> | 01/09/2026   | 01/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - **Thực hành:** <br>&emsp; + Khởi tạo RDS MySQL (Gói Free Tier) <br>&emsp; + SSH vào EC2 và kiểm tra kết nối Cơ sở dữ liệu <br>&emsp; + Dọn dẹp tài nguyên | 02/09/2026   | 02/09/2026      | <https://cloudjourney.awsstudygroup.com/> |
+
+| Ngày | Công việc | Bắt đầu | Hoàn thành | Tài liệu tham khảo |
+| :--- | :--- | :--- | :--- | :--- |
+| Thứ Bảy (tại cơ sở) | Tìm hiểu Route Table, tuyến nội bộ local và cách kết hợp với subnet trong buổi thực tập. | 12/09/2026 | 12/09/2026 | [Subnet route tables](https://docs.aws.amazon.com/vpc/latest/userguide/subnet-route-tables.html) |
+| Chủ nhật (tự học) | Đọc cách gắn Internet Gateway vào VPC và cấu hình tuyến ra Internet cho subnet công khai. | 13/09/2026 | 13/09/2026 | [Internet gateway](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-igw.html) |
+| Thứ Hai (tự học) | Tự học các quy tắc inbound, outbound của Security Group và cách hạn chế cổng SSH. | 14/09/2026 | 14/09/2026 | [VPC infrastructure security](https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html) |
+| Thứ Ba (tự học) | So sánh Security Group với Network ACL và ghi chú cách kiểm soát lưu lượng ở từng lớp. | 15/09/2026 | 15/09/2026 | [Network ACLs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html) |
 
 ### Kết quả đạt được tuần 4:
 
-* Hiểu rõ ưu và nhược điểm của các loại cơ sở dữ liệu trên AWS:
-  * Amazon RDS (Cơ sở dữ liệu quan hệ)
-  * Amazon DynamoDB (Cơ sở dữ liệu phi quan hệ)
-  * ...
+- Hiểu vai trò của Route Table và Internet Gateway khi thiết lập kết nối Internet.
+- Phân biệt được bảo mật cấp tài nguyên và cấp subnet.
+- Nắm nguyên tắc chỉ mở các cổng thực sự cần thiết.
 
-* Nắm bắt cơ chế đảm bảo tính sẵn sàng cao (HA) cho Database:
-  * Multi-AZ Failover
-  * Read Replicas (Mở rộng năng lực đọc)
-
-* Đã thiết lập thành công các nhóm mạng bảo mật dành riêng cho cơ sở dữ liệu:
-  * DB Subnet Groups
-  * Security Groups chặn truy cập Internet
-  * ...
-
-* Triển khai hoàn chỉnh môi trường cơ sở dữ liệu đám mây, bao gồm:
-  * Khởi tạo máy chủ RDS MySQL
-  * Kết nối an toàn từ tầng Application (EC2) sang tầng Database (RDS) thông qua MySQL CLI
-  * ...
-
-* Tự tay thực thi các truy vấn SQL cơ bản trên hệ thống DB đám mây được quản lý.
-* ...
