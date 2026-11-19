@@ -1,75 +1,54 @@
 ---
-title : "Blog 2: Automated Medical Record Digitization with AI"
-date : 2026-06-19
-weight : 2
-chapter : false
-pre : " <b> 3.2. </b> "
+title: "3.2 Preventing Server Downtime and Keeping Systems Reliable on AWS"
+weight: 2
+chapter: false
 ---
 
-### Automating Patient Record Digitization with AI — AWS Just Announced a Pipeline That Does This in 20 Minutes
+## Introduction
 
-Paper medical records are killing patient care quality — and here is how AI solves it
+No server is guaranteed to operate without interruption, even when deployed on AWS. Sudden traffic spikes, CPU or memory overload, software errors, and infrastructure failures can all disrupt services. Therefore, we should plan for failure prevention and recovery from the very beginning of system design.
 
-A patient is admitted for an emergency. The doctor needs to know the medical history, medications currently being taken, and the most recent test results. 
+## Recommended Solutions on AWS
 
-But all that information is sitting in a physical paper folder at an old hospital — or worse, trapped inside a scanned PDF file that no software can read automatically. This is not just a single hospital's problem. This is the reality of the global healthcare industry. And AWS has just announced a solution that hits right at that pain point.
+- **Amazon CloudWatch:** Monitor performance and configure alerts through Amazon SNS to detect early signs of problems.
+- **Elastic Load Balancing (ELB):** Distribute incoming traffic across healthy servers instead of concentrating the load on a single server.
+- **EC2 Auto Scaling:** Automatically adjust the number of servers based on demand and replace unhealthy instances according to health checks.
+- **Multi-AZ:** Deploy servers across multiple Availability Zones within the same Region to reduce the impact of a failure in one zone.
+- **AWS Backup:** Back up data regularly and test recovery procedures to minimize data loss.
 
-#### What is the real issue?
-Paper medical records do not just take up physical storage space. They create information gaps that directly impact treatment decisions. Manual data entry is expensive, slow, and highly prone to errors. 
+![EC2 Auto Scaling architecture with an Application Load Balancer](https://docs.aws.amazon.com/images/autoscaling/ec2/userguide/images/elb-tutorial-architecture-diagram.png)
 
-Scanning to PDF still does not help — because computers cannot "read and understand" the content inside a snapshot of a piece of paper. The core technical problem is: how do you transform a scanned piece of paper into structured data that any hospital system can read and exchange?
+*Figure 1. Load balancing and EC2 deployment across multiple Availability Zones. Source: [AWS Documentation](https://docs.aws.amazon.com/autoscaling/ec2/userguide/tutorial-ec2-auto-scaling-load-balancer.html).*
 
-#### The Solution: An Automated Pipeline from PDF to Internationally Standardized Medical Data
-AWS just announced an architecture combining Amazon Bedrock Data Automation and AWS HealthLake to automate this entire process — no need to build custom AI models, and no manual parser programming required for each distinct form. Let's break down each piece for easy comprehension.
+For example, when an EC2 instance fails, the load balancer can route new requests to the remaining healthy servers. Auto Scaling can replace the failed instance when appropriate health checks are configured. The remaining servers need enough capacity to serve users, and data must also have suitable redundancy.
 
-##### What is FHIR — and why does it matter?
-FHIR is the international standard for healthcare systems to exchange data with one another. Simply put: it is like a "common language" that every hospital software in the world understands. When patient data is stored in the FHIR standard, any system — whether from Hospital A or Clinic B — can read and use it seamlessly.
+![EC2 instance scale-out process](https://docs.aws.amazon.com/images/autoscaling/ec2/userguide/images/scale-out-diagram.png)
 
-#### How does the entire pipeline work?
-<img width="865" height="359" alt="Blog 2-1" src="/images/3-Blogs/blog2-1.png" />
+*Figure 2. Bringing a new EC2 instance into service during scale-out. Source: [AWS Documentation](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-lifecycle.html).*
 
-The workflow runs fully autonomously through sequential event triggers:
+## Choosing the Right Scaling Approach
 
-<div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px; margin: 20px 0; font-weight: bold; font-size: 0.95em;">
-  <div style="background-color: #f0f4f8; color: #1a365d; padding: 8px 12px; border-radius: 6px; border: 1px solid #cbd5e1;">Step 1: Upload PDF to S3</div>
-  <div style="color: #64748b; font-size: 1.2em;">&rarr;</div>
-  <div style="background-color: #f0f4f8; color: #1a365d; padding: 8px 12px; border-radius: 6px; border: 1px solid #cbd5e1;">Step 2: Intelligent AI Extraction</div>
-  <div style="color: #64748b; font-size: 1.2em;">&rarr;</div>
-  <div style="background-color: #f0f4f8; color: #1a365d; padding: 8px 12px; border-radius: 6px; border: 1px solid #cbd5e1;">Step 3: Lambda FHIR Mapping</div>
-  <div style="color: #64748b; font-size: 1.2em;">&rarr;</div>
-  <div style="background-color: #f0f4f8; color: #1a365d; padding: 8px 12px; border-radius: 6px; border: 1px solid #cbd5e1;">Step 4: AWS HealthLake Ingestion</div>
-</div>
+| Criteria | Vertical Scaling | Horizontal Scaling |
+| --- | --- | --- |
+| Method | Increase CPU and RAM | Increase the number of servers |
+| Implementation | Simpler | More complex |
+| Fault tolerance | Limited with a single server | Better with redundancy |
+| Scalability | Limited by server capacity | More flexible |
 
-* **Step 1 — Upload PDF:** You upload the scanned patient record to Amazon S3 (AWS's cloud storage service). That is it. From here, the system runs automatically.
-* **Step 2 — AI Reading and Extraction:** Amazon Bedrock Data Automation receives the file, automatically reads the content, and extracts over 50 clinical data attributes — patient name, date of birth, diagnosis with ICD-10 codes, active medications, vital signs, and lab results. Every extracted piece of info comes with a confidence score bounded between 0 and 1 — the system itself knows how confident it is.
-* **Step 3 — Conversion to FHIR Standard:** AWS Lambda (an automated processing service) receives the extracted data and maps it into the globally compliant FHIR R4 format.
-* **Step 4 — Storing into Healthcare Data Stores:** AWS HealthLake ingests it, validates structural integrity, indexes properties, and saves it. You can then immediately query the data via standard APIs.
+Small systems can start with a suitably sized server, monitoring, and backups. For critical services that require continuous availability, prioritize multiple servers, load balancing, and Multi-AZ deployment when the budget allows.
 
-#### What does the actual system output look like?
-Here is an example of an actual output from the system after processing a sample medical record:
+## Recommendations
 
-<img width="865" height="550" alt="Blog 2-2" src="/images/3-Blogs/blog2-2.png" />
+In my opinion, rather than trying to build a server that never fails, we should build a system that can continue operating or recover quickly when failure occurs. Monitor proactively, test fault tolerance, and choose redundancy solutions that match actual needs. There is no need to deploy too many services from the start, but we should not wait until a system fails before preparing a response plan.
 
-*“All the above information was extracted automatically from a scanned PDF file — within 2 to 3 minutes.”*
+## Linkmyblog
 
-#### Cost metrics to run this infrastructure
-AWS published a granular cost estimation modeled against a processing volume of roughly 100 documents per month:
+https://www.facebook.com/groups/awsstudygroupfcj/permalink/2341484523283173/?rdid=ybztwhA7Gy935T5y#
 
-<img width="865" height="445" alt="image" src="https://github.com/user-attachments/assets/2f73776b-ad02-49f0-854f-837a4d75d8f4" />
+## References
 
+- [Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/)
+- [AWS – Set up a scaled and load-balanced application](https://docs.aws.amazon.com/autoscaling/ec2/userguide/tutorial-ec2-auto-scaling-load-balancer.html)
+- [AWS Well-Architected – Reliability Pillar](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html)
 
-“At a larger volume — 10,000 records/month — infrastructure operating costs reach around \$2,000–\$3,000. Whether this is expensive or cost-effective depends on benchmarking it directly against human manual data-entry labor costs.”
-
-#### Critical safeguards to keep in mind
-AWS explicitly clarifies right in the article: this represents a prototype solution using synthesized mockup records (not live, actual patient data). 
-
-To transition this framework to handle real production workloads with actual patient records, you must implement comprehensive security controls to comply with rigid HIPAA regulations — enforcing robust at-rest/in-transit data encryption, strict IAM access configurations, and formal Business Associate Addendums (BAA) with AWS. This is not a weakness of the solution — it is an admirable level of transparency. Medical records belong to the most sensitive data classification, and there should be absolute zero shortcuts taken in security.
-
-#### Why is this article worth noting?
-The most compelling aspect does not sit at the core technology level — but in how AWS packaged it. The complete architectural blueprint, sample code, and deployment instructions have been published openly on GitHub. 
-
-Any healthcare institution or medical tech team can clone the repository, run it within a sandbox for 20 minutes, and evaluate its accuracy against localized forms. This is a much more practical approach than grand marketing demos that no one can execute in reality.
-
-> Compiled from the AWS Architecture Blog, published June 2026.
-> * **Production Reference Codebase:** [github.com/aws-samples/sample-bedrock-data-automation-fhir-pipeline](https://github.com/aws-samples/sample-bedrock-data-automation-fhir-pipeline)
-> * **Original Source Article:** [https://aws.amazon.com/blogs/architecture/automate-medical-record-digitization-with-amazon-bedrock-data-automation-and-aws-healthlake/](https://aws.amazon.com/blogs/architecture/automate-medical-record-digitization-with-amazon-bedrock-data-automation-and-aws-healthlake/)
+#AWS #AWSFCAJ #EC2 #AutoScaling #HighAvailability

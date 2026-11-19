@@ -6,9 +6,7 @@ chapter: false
 ---
 
 # Internship Report
-
 ### Student Information:
-
 &emsp; **Full Name:** Le Manh Quan
 
 &emsp; **Phone Number:** 0855680633
@@ -27,14 +25,16 @@ chapter: false
 
 &emsp; **Internship Duration:** From 08/08/2026 to 14/11/2026
 
-![Your profile picture](/images/avatar.png)
+
+![Profile picture]({{< relURL "images/avatar.png" >}})
+
 
 ### Report Content
 
-1.  [Worklog](1-Worklog/)
-2.  [Proposal](2-Proposal/)
-3.  [BlogsPosted](3-BlogsPosted/)
-4.  [Events Participated](4-EventParticipated/)
-5.  [Workshop](5-Workshop/)
-6.  [Self-evaluation](6-Self-evaluation/)
-7.  [Sharing and Feedback](7-Feedback/)
+1.  [Worklog](1-worklog/)
+2.  [Proposal](2-proposal/)
+3.  [BlogsPosted](3-blogsposted/)
+4.  [Events Participated](4-eventparticipated/)
+5.  [Workshop](5-workshop/)
+6.  [Self-evaluation](6-self-evaluation/)
+7.  [Sharing and Feedback](7-feedback/)

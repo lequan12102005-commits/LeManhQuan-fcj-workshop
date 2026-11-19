@@ -1,20 +1,17 @@
 ---
-title: "Các bài blogs đã đăng"
-date: 2024-01-01
+title: "3. Bài viết đã đăng"
 weight: 3
-chapter: false
-pre: " <b> 3. </b> "
+chapter: true
+draft: false
 ---
 
+## Bài viết trong quá trình thực tập AWS
+
+Trong kỳ thực tập từ **08/08 đến 14/11/2026**, nhóm em thực hiện đề tài **xây dựng hệ thống quản lý và giám sát hạ tầng mạng doanh nghiệp vừa và nhỏ trên AWS tích hợp dịch vụ Serverless**. 
 
 
-Tại đây là phần liệt kê và giới thiệu các blog mà tôi đã đăng trên [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj).
 
-### [Blog 1 - Cách Synthesia tối ưu hóa suy luận video AI tạo sinh trên Amazon EC2 G7e](3.1-Blog1/)
-Blog này giải thích cách Synthesia cải thiện hiệu quả suy luận video AI tạo sinh bằng cách thiết kế lại quy trình làm việc để giữ GPU luôn bận rộn, giảm thời gian chờ và giảm chi phí vận hành.
-
-### [Blog 2 - Tự động hóa số hóa hồ sơ bệnh án bằng AI](3.2-Blog2/)
-Blog này mô tả cách các dịch vụ của AWS như Amazon Bedrock Data Automation và AWS HealthLake có thể chuyển đổi hồ sơ bệnh án scan thành dữ liệu có cấu trúc theo chuẩn, giúp bệnh viện giảm thao tác thủ công và nâng cao khả năng sử dụng dữ liệu.
-
-### [Blog 3 - Cách AWS tối ưu hóa AI cho robot tự hành hoạt động ngoài thực địa](3.3-Blog3/)
-Blog này cho thấy cách Aigen sử dụng AWS SageMaker AI, tự động gán nhãn dữ liệu, học tích cực và distillation mô hình để triển khai các mô hình AI nhẹ và thích nghi trên robot nông nghiệp hoạt động trong môi trường thực tế.
+| Bài viết | Nội dung | Xem chi tiết |
+|---|---|---|
+| **3.1** | Giám sát hệ thống trên AWS: Càng nhiều dữ liệu càng tốt? | [Blog 1](./3.1-blog1/) |  
+| **3.2** | Hạn chế sập server và duy trì hệ thống ổn định trên AWS | [Blog 2](./3.2-blog2/) | 

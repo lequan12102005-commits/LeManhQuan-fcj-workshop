@@ -1,81 +1,54 @@
 ---
-title : "Blog 2: Tự động số hóa hồ sơ bệnh nhân bằng AI"
-date : 2026-06-19
-weight : 2
-chapter : false
-pre : " <b> 3.2. </b> "
+title: "3.2 Hạn chế sập server và duy trì hệ thống ổn định trên AWS"
+weight: 2
+chapter: false
 ---
 
-### Tự động số hóa hồ sơ bệnh nhân bằng AI — AWS vừa công bố pipeline làm được điều này trong 20 phút
+## Giới thiệu
 
-Hồ sơ y tế giấy đang giết chết chất lượng chăm sóc bệnh nhân — và đây là cách AI giải quyết nó
+Không có máy chủ nào đảm bảo hoạt động ổn định tuyệt đối, kể cả khi triển khai trên AWS. Lượng truy cập tăng đột biến, CPU hoặc RAM quá tải, lỗi phần mềm và sự cố hạ tầng đều có thể khiến dịch vụ bị gián đoạn. Vì vậy, ngay từ khi thiết kế hệ thống, chúng ta nên chuẩn bị phương án phòng ngừa và khôi phục sự cố.
 
-Bệnh nhân nhập viện cấp cứu. Bác sĩ cần biết tiền sử bệnh, thuốc đang dùng, kết quả xét nghiệm gần nhất. 
+## Các giải pháp nên áp dụng trên AWS
 
-Nhưng toàn bộ thông tin đó đang nằm trong một tập hồ sơ giấy ở bệnh viện cũ — hoặc tệ hơn, nằm trong một file PDF scan mà không phần mềm nào đọc được tự động. Đây không phải vấn đề của riêng một bệnh viện. Đây là thực trạng của cả ngành y tế toàn cầu. Và AWS vừa công bố một giải pháp giải quyết đúng vào điểm đau đó.
+- **Amazon CloudWatch:** Theo dõi hiệu suất và thiết lập cảnh báo qua Amazon SNS để phát hiện sớm dấu hiệu bất thường.
+- **Elastic Load Balancing (ELB):** Phân phối lượng truy cập đến các máy chủ đang hoạt động tốt, tránh dồn tải vào một máy chủ.
+- **EC2 Auto Scaling:** Tự động điều chỉnh số lượng máy chủ theo nhu cầu và thay thế máy chủ lỗi dựa trên kiểm tra sức khỏe.
+- **Multi-AZ:** Triển khai máy chủ tại nhiều vùng sẵn sàng trong cùng một Region để giảm ảnh hưởng khi một vùng gặp sự cố.
+- **AWS Backup:** Sao lưu dữ liệu định kỳ và kiểm thử khả năng khôi phục để hạn chế mất dữ liệu.
 
-#### Vấn đề thực sự là gì?
-Hồ sơ y tế giấy không chỉ tốn chỗ lưu trữ. Nó tạo ra lỗ hổng thông tin ảnh hưởng trực tiếp đến quyết định điều trị. Nhập liệu thủ công thì tốn kém, chậm, và dễ sai. 
+![Kiến trúc EC2 Auto Scaling kết hợp Application Load Balancer](https://docs.aws.amazon.com/images/autoscaling/ec2/userguide/images/elb-tutorial-architecture-diagram.png)
 
-Scan PDF thì vẫn không giúp được gì — vì máy tính không "đọc hiểu" được nội dung bên trong một ảnh chụp trang giấy. Vấn đề kỹ thuật cốt lõi là: làm thế nào để biến một tờ giấy scan thành dữ liệu có cấu trúc, mà hệ thống bệnh viện nào cũng có thể đọc và trao đổi được?
+*Hình 1. Kiến trúc cân bằng tải và triển khai EC2 tại nhiều Availability Zone. Nguồn: [AWS Documentation](https://docs.aws.amazon.com/autoscaling/ec2/userguide/tutorial-ec2-auto-scaling-load-balancer.html).*
 
-#### Giải pháp: Pipeline tự động từ PDF đến dữ liệu y tế chuẩn quốc tế
-AWS vừa công bố một kiến trúc kết hợp Amazon Bedrock Data Automation và AWS HealthLake để tự động hóa toàn bộ quy trình này — không cần xây mô hình AI riêng, không cần lập trình parser thủ công cho từng loại biểu mẫu. Mình sẽ giải thích từng mảnh ghép cho bạn dễ hiểu.
+Ví dụ, khi một EC2 gặp sự cố, bộ cân bằng tải có thể chuyển yêu cầu mới sang các máy chủ còn khỏe mạnh. Auto Scaling có thể thay thế máy chủ lỗi nếu cấu hình kiểm tra sức khỏe phù hợp. Các máy chủ còn lại cần đủ công suất để phục vụ người dùng, đồng thời dữ liệu cũng phải có phương án dự phòng.
 
-##### FHIR là gì — và tại sao nó quan trọng?
-FHIR là tiêu chuẩn quốc tế để các hệ thống y tế trao đổi dữ liệu với nhau. Hiểu đơn giản: nó giống như "ngôn ngữ chung" mà mọi phần mềm bệnh viện trên thế giới đều hiểu được. Khi dữ liệu bệnh nhân được lưu theo chuẩn FHIR, bất kỳ hệ thống nào — dù của bệnh viện A hay phòng khám B — đều có thể đọc và dùng được.
+![Quy trình mở rộng số lượng máy chủ EC2](https://docs.aws.amazon.com/images/autoscaling/ec2/userguide/images/scale-out-diagram.png)
 
-#### Toàn bộ quy trình hoạt động ra sao?
-<img width="865" height="359" alt="Blog 2-1" src="/images/3-Blogs/blog2-1.png" />
+*Hình 2. Quy trình đưa EC2 mới vào phục vụ khi mở rộng. Nguồn: [AWS Documentation](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-lifecycle.html).*
 
-Quy trình chạy hoàn toàn tự động theo từng bước kích hoạt nhau:
+## Lựa chọn phương án mở rộng phù hợp
 
-<div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px; margin: 20px 0; font-weight: bold; font-size: 0.95em;">
-  <div style="background-color: #f0f4f8; color: #1a365d; padding: 8px 12px; border-radius: 6px; border: 1px solid #cbd5e1;">Bước 1: Upload PDF lên S3</div>
-  <div style="color: #64748b; font-size: 1.2em;">&rarr;</div>
-  <div style="background-color: #f0f4f8; color: #1a365d; padding: 8px 12px; border-radius: 6px; border: 1px solid #cbd5e1;">Bước 2: AI đọc và trích xuất</div>
-  <div style="color: #64748b; font-size: 1.2em;">&rarr;</div>
-  <div style="background-color: #f0f4f8; color: #1a365d; padding: 8px 12px; border-radius: 6px; border: 1px solid #cbd5e1;">Bước 3: Lambda chuyển đổi sang FHIR</div>
-  <div style="color: #64748b; font-size: 1.2em;">&rarr;</div>
-  <div style="background-color: #f0f4f8; color: #1a365d; padding: 8px 12px; border-radius: 6px; border: 1px solid #cbd5e1;">Bước 4: Lưu kho AWS HealthLake</div>
-</div>
+| Tiêu chí | Mở rộng theo chiều dọc (Vertical Scaling) | Mở rộng theo chiều ngang (Horizontal Scaling) |
+| --- | --- | --- |
+| Phương pháp | Tăng CPU, RAM | Tăng số lượng máy chủ |
+| Triển khai | Đơn giản hơn | Phức tạp hơn |
+| Khả năng chịu lỗi | Hạn chế nếu chỉ có một máy | Tốt hơn nếu có dự phòng |
+| Khả năng mở rộng | Giới hạn cấu hình máy | Linh hoạt hơn |
 
-* **Bước 1 — Upload PDF:** Bạn tải file scan hồ sơ bệnh nhân lên Amazon S3 (dịch vụ lưu trữ đám mây của AWS). Chỉ vậy thôi. Từ đây hệ thống tự chạy.
-* **Bước 2 — AI đọc và trích xuất:** Amazon Bedrock Data Automation nhận file, tự động đọc hiểu nội dung và trích xuất hơn 50 trường thông tin lâm sàng — tên bệnh nhân, ngày sinh, chẩn đoán bệnh kèm mã ICD-10, thuốc đang dùng, chỉ số sinh hiệu, kết quả xét nghiệm. Mỗi thông tin trích xuất ra đều kèm điểm tin cậy từ 0 đến 1 — hệ thống tự biết nó chắc chắn đến đâu.
-* **Bước 3 — Chuyển đổi sang chuẩn FHIR:** AWS Lambda (một dịch vụ xử lý tự động) nhận dữ liệu vừa trích xuất, chuyển đổi sang định dạng FHIR R4 chuẩn quốc tế.
-* **Bước 4 — Lưu vào kho dữ liệu y tế:** AWS HealthLake tiếp nhận, kiểm tra tính hợp lệ, lập chỉ mục và lưu trữ. Sau đó bạn có thể truy vấn dữ liệu ngay lập tức qua API chuẩn.
+Với hệ thống nhỏ, có thể bắt đầu từ một máy chủ có cấu hình phù hợp, kết hợp giám sát và sao lưu. Đối với dịch vụ quan trọng cần hoạt động liên tục, nên ưu tiên nhiều máy chủ, cân bằng tải và triển khai Multi-AZ nếu ngân sách cho phép.
 
-#### Kết quả thực tế trông như thế nào?
-Đây là ví dụ output thực từ hệ thống sau khi xử lý một hồ sơ bệnh nhân mẫu:
+## Lời khuyên
 
-<img width="865" height="550" alt="Blog 2-2" src="/images/3-Blogs/blog2-2.png" />
+Theo mình, thay vì cố gắng xây dựng một máy chủ không bao giờ bị sập, chúng ta nên xây dựng một hệ thống có khả năng tiếp tục hoạt động hoặc nhanh chóng khôi phục khi sự cố xảy ra. Hãy chủ động giám sát, kiểm thử khả năng chịu lỗi và lựa chọn giải pháp dự phòng phù hợp với nhu cầu thực tế. Không nhất thiết phải triển khai quá nhiều dịch vụ ngay từ đầu, nhưng không nên đợi đến khi hệ thống gặp sự cố mới chuẩn bị phương án xử lý.
 
-*“Toàn bộ thông tin trên được trích xuất tự động từ một file PDF scan — trong vòng 2 đến 3 phút.”*
+## Link blog của tôi
 
-#### Chi phí để chạy hệ thống này
-AWS công bố ước tính khá cụ thể cho trường hợp xử lý khoảng 100 hồ sơ mỗi tháng:
+https://www.facebook.com/groups/awsstudygroupfcj/permalink/2341484523283173/?rdid=ybztwhA7Gy935T5y#
 
-| Service | Usage | Estimated monthly cost |
-| :--- | :--- | :--- |
-| Amazon Bedrock Data Automation | 100 pages (approximately \$0.20–\$0.30/page) | \$20–\$30 |
-| AWS HealthLake | 5 GB storage + 100 queries | \$15–\$20 |
-| AWS Lambda | 200 invocations (512 MB, approximately 30s avg) | \$5–\$10 |
-| Amazon S3 | 1 GB storage + 200 requests | \$1–\$2 |
-| AWS KMS | 1 customer managed key | \$1 |
-| **Total approximately** | | **\$50–\$100/month** |
+## Tài liệu tham khảo
 
-“Với quy mô lớn hơn — 10.000 hồ sơ/tháng — chi phí vào khoảng \$2.000–\$3.000. Đắt hay rẻ còn tùy vào việc so sánh với chi phí nhân công nhập liệu thủ công hiện tại.”
+- [Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/)
+- [AWS – Thiết lập ứng dụng có cân bằng tải và tự động mở rộng](https://docs.aws.amazon.com/autoscaling/ec2/userguide/tutorial-ec2-auto-scaling-load-balancer.html)
+- [AWS Well-Architected – Reliability Pillar](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html)
 
-#### Điều quan trọng cần lưu ý
-AWS nói thẳng ngay trong bài: đây là giải pháp demo, dùng với dữ liệu tổng hợp (không phải dữ liệu bệnh nhân thật). 
-
-Để triển khai thực tế với hồ sơ bệnh nhân thật, cần bổ sung thêm hàng loạt kiểm soát bảo mật theo tiêu chuẩn HIPAA — từ mã hóa dữ liệu, phân quyền truy cập, đến các thỏa thuận pháp lý với AWS. Đây không phải điểm yếu của giải pháp — mà là sự minh bạch đáng trân trọng. Dữ liệu y tế là dữ liệu nhạy cảm nhất, và không nên có bất kỳ phím tắt nào trong bảo mật.
-
-#### Tại sao bài này đáng để ý?
-Mình thấy điểm thú vị nhất không nằm ở công nghệ — mà nằm ở cách AWS đóng gói nó. Toàn bộ kiến trúc, code mẫu, hướng dẫn triển khai đều công khai trên GitHub. 
-
-Bất kỳ đội kỹ thuật nào của bệnh viện hay công ty y tế cũng có thể lấy về, chạy thử trong 20 phút, và tự đánh giá có phù hợp với bài toán của mình không. Đây là hướng tiếp cận thực tế hơn nhiều so với những bản demo hoành tráng mà không ai dùng được trong thực tế.
-
-> Bài viết tổng hợp từ AWS Architecture Blog, công bố tháng 6/2026.
-> * **Toàn bộ code mẫu tại:** [github.com/aws-samples/sample-bedrock-data-automation-fhir-pipeline](https://github.com/aws-samples/sample-bedrock-data-automation-fhir-pipeline)
-> * **Bài gốc (tiếng Anh):** [https://aws.amazon.com/blogs/architecture/automate-medical-record-digitization-with-amazon-bedrock-data-automation-and-aws-healthlake/](https://aws.amazon.com/blogs/architecture/automate-medical-record-digitization-with-amazon-bedrock-data-automation-and-aws-healthlake/)
+#AWS #AWSFCAJ #EC2 #AutoScaling #HighAvailability

@@ -9,7 +9,7 @@ draft: false
 
 **Project title:** Building a Network Infrastructure Management and Monitoring System for Small and Medium-Sized Enterprises on AWS with Serverless Services.
 
-**Project format:** A three-member student team implementing a simulation-based AWS project, primarily in **US East (N. Virginia) – `us-east-1`**.
+**Project format:** A three-member student team:(Nguyen Tung Duong, Nguyen Xuan Duc, Le Manh Quan) implementing a simulation-based AWS project, primarily in **US East (N. Virginia) – `us-east-1`**.
 
 ## 1. Executive Summary
 
@@ -50,7 +50,7 @@ The system has two main data flows: **device administration through HTTP APIs** 
 
 ### 3.1. System Architecture Diagram
 
-{{< netmonarchitecture lang="en" >}}
+![Sơ đồ kiến trúc hệ thống AWS]({{< relURL "images/2-Proposal/edge_architecture.jpeg" >}})
 
 *Figure 3.1. Proposed AWS architecture for the NetMon infrastructure management and monitoring system (a design diagram, not an AWS Console screenshot).*
 
